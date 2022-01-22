@@ -1,14 +1,12 @@
 package com.francisco.course.entities;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.time.Instant;
 import java.util.Objects;
 
 @Entity
 @Table(name = "tb_order")
-public class Order implements Serializable {
-    private static final long serialVersionUID = 1l;
+public class Order {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,7 +14,6 @@ public class Order implements Serializable {
     private Instant moment;
 
     @ManyToOne
-    @JoinColumn(name = "client_id")
     private User client;
 
     public Order() {

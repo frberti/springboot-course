@@ -1,0 +1,7 @@
+package com.francisco.course.repositories;
+
+import com.francisco.course.entities.Order;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface OrderRepository extends JpaRepository<Order, Long> {
+}
