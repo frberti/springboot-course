@@ -1,6 +1,7 @@
 package com.francisco.course.entities;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.francisco.course.entities.enums.OrderStatus;
 
 import javax.persistence.*;
 import java.time.Instant;
@@ -19,12 +20,15 @@ public class Order {
     @ManyToOne
     private User client;
 
+    private Integer orderStatus;
+
     public Order() {
     }
 
-    public Order(Long id, Instant moment, User client) {
+    public Order(Long id, Instant moment, OrderStatus orderStatus , User client) {
         this.id = id;
         this.moment = moment;
+        setOrderStatus(orderStatus);
         this.client = client;
     }
 
@@ -46,6 +50,14 @@ public class Order {
 
     public User getClient() {
         return client;
+    }
+
+    public OrderStatus getOrderStatus() {
+        return OrderStatus.valueOf(orderStatus);
+    }
+
+    public void setOrderStatus(OrderStatus orderStatus) {
+        this.orderStatus = orderStatus.getCode();
     }
 
     public void setClient(User client) {
