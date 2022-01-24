@@ -25,7 +25,7 @@ public class Order {
     public Order() {
     }
 
-    public Order(Long id, Instant moment, OrderStatus orderStatus , User client) {
+    public Order(Long id, Instant moment, OrderStatus orderStatus, User client) {
         this.id = id;
         this.moment = moment;
         setOrderStatus(orderStatus);
@@ -57,7 +57,7 @@ public class Order {
     }
 
     public void setOrderStatus(OrderStatus orderStatus) {
-        if(orderStatus != null) {
+        if (orderStatus != null) {
             this.orderStatus = orderStatus.getCode();
         }
     }
