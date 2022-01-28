@@ -1,9 +1,11 @@
 package com.francisco.course.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.francisco.course.entities.pk.OrderItemPK;
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import java.io.Serializable;
 import java.util.Objects;
@@ -14,7 +16,7 @@ public class OrderItem implements Serializable {
     private static final long serialVersionUID = 1l;
 
     @EmbeddedId
-    private OrderItemPK id;
+    private OrderItemPK id = new OrderItemPK();
     private Integer quantity;
     private Double price;
 
@@ -44,6 +46,7 @@ public class OrderItem implements Serializable {
         this.price = price;
     }
 
+    @JsonIgnore
     public Order getOrder(){
         return id.getOrder();
     }
@@ -52,7 +55,7 @@ public class OrderItem implements Serializable {
         id.setOrder(order);
     }
 
-    public Product product(){
+    public Product getProduct(){
         return id.getProduct();
     }
 
