@@ -87,10 +87,10 @@ public class Product implements Serializable {
 
     @JsonIgnore
     public Set<Order> getOrders(){
-        Set<Order> set = new HashSet<>();
-        items.forEach(x -> set.add(x.getOrder())
+        Set<Order> orders = new HashSet<>();
+        items.forEach(item -> orders.add(item.getOrder())
         );
-        return set;
+        return orders;
     }
 
     @Override
