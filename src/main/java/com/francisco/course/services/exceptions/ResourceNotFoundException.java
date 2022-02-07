@@ -1,7 +1,7 @@
 package com.francisco.course.services.exceptions;
 
 public class ResourceNotFoundException extends RuntimeException{
-    private static final long SerialVersionuID = 1L;
+    private static final long SerialVersionUID = 1L;
 
     public ResourceNotFoundException(Object id){
         super("Resource not found. Id " + id);
